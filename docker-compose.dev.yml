@@ -1,0 +1,50 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: abbasaga-db
+    environment:
+      POSTGRES_DB: abbasaga
+      POSTGRES_USER: abbasaga
+      POSTGRES_PASSWORD: abbasaga
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./docker/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+
+  backend:
+    build:
+      context: .
+      dockerfile: docker/backend.Dockerfile
+    command: npm run dev
+    container_name: abbasaga-backend
+    environment:
+      NODE_ENV: development
+      HOST: 0.0.0.0
+      PORT: 3000
+      DATABASE_URL: postgres://abbasaga:abbasaga@db:5432/abbasaga
+      CORS_ORIGINS: http://localhost:5173,http://frontend:5173
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./backend:/app/backend
+    depends_on:
+      - db
+
+  frontend:
+    build:
+      context: .
+      dockerfile: docker/frontend.Dockerfile
+    command: npm run dev -- --host 0.0.0.0
+    container_name: abbasaga-frontend
+    environment:
+      VITE_API_URL: http://backend:3000
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app/frontend
+    depends_on:
+      - backend
+
+volumes:
+  postgres-data:

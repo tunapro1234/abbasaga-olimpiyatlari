@@ -1,0 +1,21 @@
+{
+  "name": "abbasaga-olympics",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Abbasağa Olimpiyatları web platformu",
+  "engines": {
+    "node": ">=18"
+  },
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "dev": "docker compose -f docker-compose.dev.yml up --build",
+    "dev:backend": "npm run dev --workspace backend",
+    "dev:frontend": "npm run dev --workspace frontend",
+    "build": "npm run build --workspace backend && npm run build --workspace frontend",
+    "lint": "npm run lint --workspace backend && npm run lint --workspace frontend",
+    "test": "npm test --workspaces --if-present"
+  }
+}
