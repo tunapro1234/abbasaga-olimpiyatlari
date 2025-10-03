@@ -1,12 +1,12 @@
 :root {
-  --color-navy: #0b3a6b;
-  --color-blue: #0f75bc;
+  --color-midnight: #0b3a6b;
+  --color-royal: #0f75bc;
   --color-cyan: #36b4d6;
-  --color-ice: #f5f8ff;
-  --color-slate: rgba(9, 26, 53, 0.82);
+  --color-snow: #f5f8ff;
+  --color-ink: rgba(9, 26, 53, 0.82);
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  color: var(--color-ice);
-  background-color: var(--color-ice);
+  color: var(--color-snow);
+  background-color: var(--color-snow);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
@@ -14,7 +14,7 @@
 body {
   margin: 0;
   min-height: 100vh;
-  background: linear-gradient(180deg, rgba(11, 58, 107, 0.92) 0%, rgba(15, 117, 188, 0.85) 45%, rgba(54, 180, 214, 0.6) 100%);
+  background: linear-gradient(180deg, rgba(11, 58, 107, 0.9) 0%, rgba(15, 117, 188, 0.82) 45%, rgba(54, 180, 214, 0.45) 100%);
 }
 
 #root {
@@ -25,45 +25,54 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  color: var(--color-ice);
+  color: var(--color-snow);
 }
 
 .hero {
   position: relative;
-  min-height: 68vh;
+  min-height: 72vh;
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  padding: 120px 24px 120px;
-  background-size: cover;
-  background-position: center;
+  padding: 120px 24px 160px;
+  overflow: hidden;
   isolation: isolate;
 }
 
-.hero::before {
-  content: '';
+.hero__image {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(9, 19, 38, 0.7) 0%, rgba(9, 19, 38, 0.4) 40%, rgba(9, 19, 38, 0.88) 100%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.02);
+  filter: saturate(1.05);
+  z-index: -3;
+}
+
+.hero__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(7, 18, 33, 0.6) 0%, rgba(7, 18, 33, 0.78) 60%, rgba(7, 18, 33, 1) 100%);
   z-index: -2;
 }
 
-.hero__overlay {
-  max-width: 780px;
+.hero__content {
   text-align: center;
+  max-width: 760px;
   display: grid;
   gap: 20px;
   z-index: 1;
 }
 
 .hero__logo {
-  width: 92px;
-  height: 92px;
+  width: 96px;
+  height: 96px;
   border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.7);
   object-fit: cover;
-  border: 3px solid rgba(255, 255, 255, 0.6);
   margin: 0 auto;
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.35);
 }
 
 .hero__eyebrow {
@@ -76,67 +85,66 @@ body {
 
 .hero__title {
   margin: 0;
-  font-size: clamp(2.6rem, 5vw, 3.8rem);
-  line-height: 1.1;
+  font-size: clamp(2.8rem, 5vw, 3.9rem);
+  line-height: 1.08;
   font-weight: 700;
 }
 
 .hero__subtitle {
   margin: 0;
-  font-size: 1.1rem;
-  color: rgba(242, 248, 255, 0.88);
+  font-size: 1.15rem;
+  color: rgba(245, 248, 255, 0.88);
 }
 
-.hero__bottom-fade {
+.hero__bottom {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 0;
-  height: 140px;
+  bottom: -1px;
+  height: 180px;
   background: linear-gradient(180deg, rgba(11, 58, 107, 0) 0%, rgba(11, 58, 107, 0.85) 60%, rgba(11, 58, 107, 1) 100%);
   z-index: -1;
 }
 
 .cta-panel {
-  background: linear-gradient(145deg, #0c3f74 0%, #1482c7 70%, #40c0de 100%);
-  margin: -90px auto 0;
-  padding: 48px 32px;
-  border-radius: 32px;
-  max-width: 960px;
+  background: linear-gradient(152deg, #0c3f74 0%, #1585ca 65%, #3fc0de 100%);
+  margin: -120px auto 0;
+  padding: 48px 36px;
+  border-radius: 36px;
+  max-width: 940px;
   width: calc(100% - 48px);
-  box-shadow: 0 40px 70px rgba(6, 16, 31, 0.4);
+  box-shadow: 0 42px 78px rgba(6, 16, 31, 0.45);
   display: grid;
-  gap: 28px;
-}
-
-.cta-panel__text {
-  display: grid;
-  gap: 12px;
+  gap: 24px;
   text-align: center;
 }
 
-.cta-panel h2 {
-  margin: 0;
-  font-size: 2rem;
+.cta-panel__header {
+  display: grid;
+  gap: 12px;
 }
 
-.cta-panel p {
+.cta-panel__header h2 {
   margin: 0;
-  color: rgba(242, 248, 255, 0.85);
+  font-size: 2.1rem;
+}
+
+.cta-panel__header p {
+  margin: 0;
+  color: rgba(245, 248, 255, 0.82);
 }
 
 .cta-panel__actions {
   display: flex;
   justify-content: center;
-  gap: 16px;
+  gap: 18px;
   flex-wrap: wrap;
-  margin-top: 12px;
 }
 
 .btn {
   border: none;
   border-radius: 999px;
-  padding: 14px 28px;
+  padding: 14px 30px;
   font-weight: 600;
   letter-spacing: 0.01em;
   cursor: pointer;
@@ -145,22 +153,22 @@ body {
 }
 
 .btn:focus-visible {
-  outline: 3px solid rgba(255, 255, 255, 0.8);
+  outline: 3px solid rgba(255, 255, 255, 0.82);
   outline-offset: 4px;
 }
 
 .btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 20px 35px rgba(5, 16, 31, 0.4);
+  box-shadow: 0 22px 38px rgba(5, 16, 31, 0.35);
 }
 
 .btn--primary {
   background: #f5f8ff;
-  color: var(--color-navy);
+  color: var(--color-midnight);
 }
 
 .btn--ghost {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.16);
   color: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.25);
 }
@@ -172,7 +180,7 @@ body {
   margin: 0 auto;
   padding: 14px 32px;
   border-radius: 22px;
-  background: rgba(7, 19, 33, 0.5);
+  background: rgba(7, 18, 33, 0.5);
   color: #ffffff;
   font-size: 0.95rem;
 }
@@ -209,18 +217,18 @@ body {
   max-width: 960px;
   width: calc(100% - 48px);
   margin: 48px auto 88px;
-  background: var(--color-ice);
-  color: var(--color-navy);
-  padding: 48px 36px;
-  border-radius: 44px 44px 0 0;
+  background: var(--color-snow);
+  color: var(--color-midnight);
+  padding: 52px 40px 88px;
+  border-radius: 46px 46px 0 0;
   box-shadow: 0 0 60px rgba(5, 16, 31, 0.12);
 }
 
 .content h2 {
   margin-top: 0;
   margin-bottom: 12px;
-  font-size: 1.8rem;
-  color: var(--color-navy);
+  font-size: 1.85rem;
+  color: var(--color-midnight);
 }
 
 .content p {
@@ -229,7 +237,7 @@ body {
 }
 
 section + section {
-  margin-top: 40px;
+  margin-top: 44px;
 }
 
 .feature-grid {
@@ -237,7 +245,7 @@ section + section {
   margin: 0;
   padding: 0;
   display: grid;
-  gap: 14px;
+  gap: 16px;
 }
 
 .feature-grid li {
@@ -245,17 +253,17 @@ section + section {
   border-radius: 18px;
   padding: 16px 20px;
   font-weight: 600;
-  color: var(--color-navy);
+  color: var(--color-midnight);
 }
 
 @media (max-width: 640px) {
   .hero {
     min-height: 75vh;
-    padding: 96px 16px 120px;
+    padding: 90px 16px 140px;
   }
 
   .cta-panel {
-    margin-top: -70px;
+    margin-top: -110px;
     padding: 40px 24px;
   }
 
@@ -265,6 +273,6 @@ section + section {
   }
 
   .content {
-    padding: 40px 24px 64px;
+    padding: 40px 24px 68px;
   }
 }

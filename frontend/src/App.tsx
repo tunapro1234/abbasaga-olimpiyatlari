@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import heroImage from './assets/abbasaga-park.jpg';
 import logoBadge from './assets/logo-badge.jpg';
 import './App.css';
 
@@ -7,6 +6,8 @@ type HealthResponse = {
   status: string;
   db?: string;
 };
+
+const HERO_IMAGE = '/hero.jpg';
 
 function App() {
   const [health, setHealth] = useState<HealthResponse | null>(null);
@@ -32,34 +33,36 @@ function App() {
 
   return (
     <div className="page">
-      <header className="hero" style={{ backgroundImage: `url(${heroImage})` }}>
-        <div className="hero__overlay">
+      <header className="hero">
+        <img className="hero__image" src={HERO_IMAGE} alt="Abbasağa Parkı amfitiyatrosu" />
+        <div className="hero__scrim" aria-hidden="true" />
+        <div className="hero__content">
           <img className="hero__logo" src={logoBadge} alt="Abbasağa Olimpiyatları logosu" />
           <p className="hero__eyebrow">Abbasağa Olimpiyatları 2025</p>
           <h1 className="hero__title">Türkiyenin En Büyük Doğum Günü Yarışması*</h1>
           <p className="hero__subtitle">
-            Abbasağa Parkı&apos;nı baştan sona kaplayan takım oyunları, pasta ritüelleri ve sürpriz final gösterileri.
+            Abbasağa Parkı&apos;nın kalbinde, takımların dayanışma ve eğlenceyle yarıştığı büyük mahalle buluşması.
             Mahallenin gururu, pastaların arenası.
           </p>
         </div>
-        <div className="hero__bottom-fade" aria-hidden="true" />
+        <div className="hero__bottom" aria-hidden="true" />
       </header>
 
       <section className="cta-panel" id="kayit">
-        <div className="cta-panel__text">
+        <div className="cta-panel__header">
           <h2>Dahil Olmak İçin Kayıt Ol</h2>
           <p>
-            Pilot aşamada ekip başvurularını sırayla açıyoruz. E-postanı bırak, kayıt formu açıldığında ilk sen haberdar
-            ol.
+            İlk katılımcı listelerini hazırlıyoruz. Ekip kaptanıysan form açıldığında ilk sen haberdar ol ki sahnede
+            yerini al.
           </p>
-          <div className="cta-panel__actions">
-            <a className="btn btn--primary" href="mailto:kayit@abbasagaolimpiyatlari.org">
-              Başvurumu Gönder
-            </a>
-            <a className="btn btn--ghost" href="#program">
-              Programı Gör
-            </a>
-          </div>
+        </div>
+        <div className="cta-panel__actions">
+          <a className="btn btn--primary" href="mailto:kayit@abbasagaolimpiyatlari.org">
+            Başvurumu Gönder
+          </a>
+          <a className="btn btn--ghost" href="#program">
+            2025 Programı
+          </a>
         </div>
         <dl className="status" role="status" aria-live="polite">
           <div className="status__item">
@@ -78,16 +81,16 @@ function App() {
         <section id="program">
           <h2>Program</h2>
           <p>
-            Sabah park koşusuyla açılış, öğlen dev pasta seremonisi ve akşam amfitiyatro finali. Detaylı saat programı
-            yakında paylaşılacak.
+            Sabah açılış korteji, öğlen dev pasta seremonisi, akşam amfitiyatro finali. Takvim ayrıntıları netleştiğinde
+            buradan duyuracağız.
           </p>
         </section>
         <section>
           <h2>Ne Beklemelisin?</h2>
           <ul className="feature-grid">
-            <li>Mahalle takımlarıyla 3 aşamalı parkur</li>
-            <li>Topluluk jürisi ve sürpriz sanatçı konuklar</li>
-            <li>Yerel üreticilerle dayanışma pazarı</li>
+            <li>Üç etaplı parkur oyunları ve takım puanlaması</li>
+            <li>Pasta ritüeli ve topluluk jürisiyle tadım seansı</li>
+            <li>Mahalle kooperatifleriyle dayanışma pazarı</li>
           </ul>
         </section>
       </main>
