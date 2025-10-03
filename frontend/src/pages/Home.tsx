@@ -57,18 +57,18 @@ export default function HomePage() {
             </div>
           </div>
           <div className="hero__copy">
-            <p className="hero__eyebrow">Abbasağa Olimpiyatları 2025</p>
+            <p className="hero__eyebrow">1. Abbasağa Olimpiyatları 2025</p>
             <h1 className="hero__title">Türkiyenin En Büyük Doğum Günü Yarışması*</h1>
             <p className="hero__subtitle">
-              Abbasağa Parkı&apos;nın kalbinde, takımların dayanışma ve eğlenceyle yarıştığı büyük mahalle buluşması.
-              Mahallenin gururu, pastaların arenası.
+              Tuna ve Mete&apos;nin doğum günü partisi bu yıl Abbasağa Parkı&apos;nı kocaman bir olimpiyat alanına çeviriyor.
+              Müthiş eğlenceye katıl, mahallenin gururunu birlikte büyütelim.
             </p>
             <div className="hero__actions">
               <a className="btn btn--primary" href="mailto:kayit@abbasagaolimpiyatlari.org">
-                Yarışmaya Katıl
+                Olimpiyatlara Katıl
               </a>
-              <a className="btn btn--ghost" href="#">
-                Program Yakında
+              <a className="btn btn--ghost" href="/program">
+                Programı İncele
               </a>
             </div>
             <dl className="status" role="status" aria-live="polite">

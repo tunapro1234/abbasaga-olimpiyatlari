@@ -3,9 +3,8 @@ export default function KayitPage() {
     <section className="simple-page">
       <h1>Kayıt</h1>
       <p>
-        Takım başvurularını sırayla açacağız. Şimdilik kayıt süreci e-posta üzerinden ilerliyor. Başvurunu iletmek için
-        <a href="mailto:kayit@abbasagaolimpiyatlari.org">kayit@abbasagaolimpiyatlari.org</a> adresine mail
-        gönderebilirsin.
+        50 kişilik kontenjan var. Tuna & Mete ekibine katılmak için takımını sun ve <a href="mailto:kayit@abbasagaolimpiyatlari.org">kayit@abbasagaolimpiyatlari.org</a>
+        adresine mail at. İlk olimpiyatımızda yerini garantile.
       </p>
     </section>
   );

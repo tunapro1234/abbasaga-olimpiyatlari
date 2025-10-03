@@ -3,8 +3,8 @@ export default function ProgramPage() {
     <section className="simple-page">
       <h1>Program</h1>
       <p>
-        2025 Abbasağa Olimpiyatları program detayları üzerinde çalışıyoruz. Etkinlik akışı, kategori saatleri ve
-        sahne performansları duyurulduğunda burada paylaşılacak.
+        Program detaylarını Tunayla Mete netleştiriyor. 1. Abbasağa Olimpiyatları 2025 için yarış çizelgesi, pasta
+        seremonisi ve sürpriz final saatleri yakında burada.
       </p>
     </section>
   );

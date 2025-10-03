@@ -3,6 +3,7 @@ import HomePage from './pages/Home';
 import ProgramPage from './pages/Program';
 import DestekPage from './pages/Destek';
 import KayitPage from './pages/Kayit';
+import GecmisPage from './pages/Gecmis';
 import logoBadge from './assets/logo-badge.jpg';
 import './App.css';
 
@@ -15,6 +16,7 @@ const links: LinkDescriptor[] = [
   { to: '/', label: 'Ana Sayfa' },
   { to: '/program', label: 'Program' },
   { to: '/kayit', label: 'Kayıt' },
+  { to: '/gecmis', label: 'Geçmiş Etkinlikler' },
   { to: '/destek', label: 'Destek' }
 ];
 
@@ -27,7 +29,7 @@ function Shell() {
       <header className={isHome ? 'site-header site-header--overlay' : 'site-header site-header--solid'}>
         <div className="site-header__logo">
           <img src={logoBadge} alt="Abbasağa Olimpiyatları logosu" />
-          <span>Abbasağa Olimpiyatları</span>
+          <span>1. Abbasağa Olimpiyatları 2025</span>
         </div>
         <nav className="site-header__nav">
           {links.map((link) => (
@@ -53,6 +55,7 @@ function Shell() {
           <Route path="/" element={<HomePage />} />
           <Route path="/program" element={<ProgramPage />} />
           <Route path="/kayit" element={<KayitPage />} />
+          <Route path="/gecmis" element={<GecmisPage />} />
           <Route path="/destek" element={<DestekPage />} />
         </Routes>
       </main>
