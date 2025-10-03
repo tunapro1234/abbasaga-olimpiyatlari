@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import logoBadge from './assets/logo-badge.jpg';
-import heroOverlay from './assets/hero2.webp';
 import './App.css';
 
 type HealthResponse = {
@@ -53,8 +52,26 @@ function App() {
         <img className="hero__image" src={HERO_IMAGE} alt="Abbasağa Parkı amfitiyatrosu" />
         <div className="hero__scrim" aria-hidden="true" />
         <div className="hero__content">
-          <div className="hero__badge">
-            <img src={heroOverlay} alt="Abbasağa Olimpiyatları" />
+          <div className="hero__badge" aria-labelledby="heroBadgeTitle">
+            <p id="heroBadgeTitle" className="hero__badge-title">
+              Abbasağa Parkı
+            </p>
+            <p className="hero__badge-date">15 Haziran 2025 • Beşiktaş</p>
+            <div className="hero__badge-division" aria-hidden="true" />
+            <div className="hero__badge-grid">
+              <div>
+                <span className="hero__badge-label">Takım</span>
+                <span className="hero__badge-value">32 kontenjan</span>
+              </div>
+              <div>
+                <span className="hero__badge-label">Kategori</span>
+                <span className="hero__badge-value">Parkur · Pasta · Sürpriz</span>
+              </div>
+              <div>
+                <span className="hero__badge-label">Seyirci</span>
+                <span className="hero__badge-value">1.500 kapasite</span>
+              </div>
+            </div>
           </div>
           <div className="hero__copy">
             <p className="hero__eyebrow">Abbasağa Olimpiyatları 2025</p>
