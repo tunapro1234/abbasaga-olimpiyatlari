@@ -48,7 +48,7 @@ function App() {
         </a>
       </header>
 
-      <section className="hero">
+      <main className="hero">
         <img className="hero__image" src={HERO_IMAGE} alt="Abbasağa Parkı amfitiyatrosu" />
         <div className="hero__scrim" aria-hidden="true" />
         <div className="hero__content">
@@ -81,70 +81,26 @@ function App() {
               Mahallenin gururu, pastaların arenası.
             </p>
             <div className="hero__actions">
-              <a className="btn btn--primary" href="#kayit">
+              <a className="btn btn--primary" href="mailto:kayit@abbasagaolimpiyatlari.org">
                 Yarışmaya Katıl
               </a>
-              <a className="btn btn--ghost" href="#program">
-                Programı İncele
+              <a className="btn btn--ghost" href="#">
+                Program Yakında
               </a>
             </div>
+            <dl className="status" role="status" aria-live="polite">
+              <div className="status__item">
+                <dt>API</dt>
+                <dd>{health?.status ?? (error ? 'Sorun' : 'Yükleniyor')}</dd>
+              </div>
+              <div className="status__item">
+                <dt>Veritabanı</dt>
+                <dd>{health?.db ?? (error ? 'Sorun' : 'Yükleniyor')}</dd>
+              </div>
+            </dl>
+            {error && <p className="status status--error">Bağlantı hatası: {error}</p>}
           </div>
         </div>
-        <div className="hero__bottom" aria-hidden="true" />
-      </section>
-
-      <section className="cta-panel" id="kayit">
-        <div className="cta-panel__header">
-          <h2>Dahil Olmak İçin Kayıt Ol</h2>
-          <p>
-            İlk katılımcı listelerini hazırlıyoruz. Ekip kaptanıysan form açıldığında ilk sen haberdar ol ki sahnede
-            yerini al.
-          </p>
-        </div>
-        <div className="cta-panel__actions">
-          <a className="btn btn--primary" href="mailto:kayit@abbasagaolimpiyatlari.org">
-            Başvurumu Gönder
-          </a>
-          <a className="btn btn--ghost" href="#destek">
-            Destek Ol
-          </a>
-        </div>
-        <dl className="status" role="status" aria-live="polite">
-          <div className="status__item">
-            <dt>API</dt>
-            <dd>{health?.status ?? (error ? 'Sorun' : 'Yükleniyor')}</dd>
-          </div>
-          <div className="status__item">
-            <dt>Veritabanı</dt>
-            <dd>{health?.db ?? (error ? 'Sorun' : 'Yükleniyor')}</dd>
-          </div>
-        </dl>
-        {error && <p className="status status--error">Bağlantı hatası: {error}</p>}
-      </section>
-
-      <main className="content">
-        <section id="program">
-          <h2>Program</h2>
-          <p>
-            Sabah açılış korteji, öğlen dev pasta seremonisi, akşam amfitiyatro finali. Takvim ayrıntıları netleştiğinde
-            buradan duyuracağız.
-          </p>
-        </section>
-        <section id="destek">
-          <h2>Destek Çağrısı</h2>
-          <p>
-            Mahalle kooperatiflerine bağış, gönüllü ekip ve mentorlar aranıyor. Lokasyon paylaşımları ve sponsorluk
-            önerileri için <a href="mailto:destek@abbasagaolimpiyatlari.org">destek mailimize</a> yazabilirsin.
-          </p>
-        </section>
-        <section>
-          <h2>Ne Beklemelisin?</h2>
-          <ul className="feature-grid">
-            <li>Üç etaplı parkur oyunları ve takım puanlaması</li>
-            <li>Pasta ritüeli ve topluluk jürisiyle tadım seansı</li>
-            <li>Mahalle kooperatifleriyle dayanışma pazarı</li>
-          </ul>
-        </section>
       </main>
     </div>
   );
