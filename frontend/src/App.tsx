@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import logoBadge from './assets/logo-badge.jpg';
+import heroOverlay from './assets/hero2.webp';
 import './App.css';
 
 type HealthResponse = {
@@ -33,20 +34,47 @@ function App() {
 
   return (
     <div className="page">
-      <header className="hero">
+      <header className="site-header">
+        <div className="site-header__logo">
+          <img src={logoBadge} alt="Abbasağa Olimpiyatları logosu" />
+          <span>Abbasağa Olimpiyatları</span>
+        </div>
+        <nav className="site-header__nav">
+          <a href="#kayit">Kayıt</a>
+          <a href="#program">Program</a>
+          <a href="#destek">Destek</a>
+        </nav>
+        <a className="site-header__cta" href="mailto:kayit@abbasagaolimpiyatlari.org">
+          Hemen Yaz
+        </a>
+      </header>
+
+      <section className="hero">
         <img className="hero__image" src={HERO_IMAGE} alt="Abbasağa Parkı amfitiyatrosu" />
         <div className="hero__scrim" aria-hidden="true" />
         <div className="hero__content">
-          <img className="hero__logo" src={logoBadge} alt="Abbasağa Olimpiyatları logosu" />
-          <p className="hero__eyebrow">Abbasağa Olimpiyatları 2025</p>
-          <h1 className="hero__title">Türkiyenin En Büyük Doğum Günü Yarışması*</h1>
-          <p className="hero__subtitle">
-            Abbasağa Parkı&apos;nın kalbinde, takımların dayanışma ve eğlenceyle yarıştığı büyük mahalle buluşması.
-            Mahallenin gururu, pastaların arenası.
-          </p>
+          <div className="hero__badge">
+            <img src={heroOverlay} alt="Abbasağa Olimpiyatları" />
+          </div>
+          <div className="hero__copy">
+            <p className="hero__eyebrow">Abbasağa Olimpiyatları 2025</p>
+            <h1 className="hero__title">Türkiyenin En Büyük Doğum Günü Yarışması*</h1>
+            <p className="hero__subtitle">
+              Abbasağa Parkı&apos;nın kalbinde, takımların dayanışma ve eğlenceyle yarıştığı büyük mahalle buluşması.
+              Mahallenin gururu, pastaların arenası.
+            </p>
+            <div className="hero__actions">
+              <a className="btn btn--primary" href="#kayit">
+                Yarışmaya Katıl
+              </a>
+              <a className="btn btn--ghost" href="#program">
+                Programı İncele
+              </a>
+            </div>
+          </div>
         </div>
         <div className="hero__bottom" aria-hidden="true" />
-      </header>
+      </section>
 
       <section className="cta-panel" id="kayit">
         <div className="cta-panel__header">
@@ -60,8 +88,8 @@ function App() {
           <a className="btn btn--primary" href="mailto:kayit@abbasagaolimpiyatlari.org">
             Başvurumu Gönder
           </a>
-          <a className="btn btn--ghost" href="#program">
-            2025 Programı
+          <a className="btn btn--ghost" href="#destek">
+            Destek Ol
           </a>
         </div>
         <dl className="status" role="status" aria-live="polite">
@@ -83,6 +111,13 @@ function App() {
           <p>
             Sabah açılış korteji, öğlen dev pasta seremonisi, akşam amfitiyatro finali. Takvim ayrıntıları netleştiğinde
             buradan duyuracağız.
+          </p>
+        </section>
+        <section id="destek">
+          <h2>Destek Çağrısı</h2>
+          <p>
+            Mahalle kooperatiflerine bağış, gönüllü ekip ve mentorlar aranıyor. Lokasyon paylaşımları ve sponsorluk
+            önerileri için <a href="mailto:destek@abbasagaolimpiyatlari.org">destek mailimize</a> yazabilirsin.
           </p>
         </section>
         <section>
